@@ -218,7 +218,7 @@ module.exports = setButton
   var button
   for (var i = 0, l = buttons.length; i < l; i++)
     if (!(button = buttons[i]).getAttribute('data-processed'))
-      setButton(buttons[i])
+      setButton(button)
 })()
 
 function setButton(el) {
