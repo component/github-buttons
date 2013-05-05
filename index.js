@@ -12,8 +12,10 @@ module.exports = setButton
 
 ;(setButton.all = function () {
   var buttons = document.querySelectorAll('.github-btn')
+  var button
   for (var i = 0, l = buttons.length; i < l; i++)
-    setButton(buttons[i])
+    if (!(button = buttons[i]).getAttribute('data-processed'))
+      setButton(buttons[i])
 })()
 
 function setButton(el) {

@@ -201,6 +201,8 @@ require.relative = function(parent) {
   return localRequire;
 };
 require.register("github-buttons/index.js", function(exports, require, module){
+// Sauce: https://github.com/mdo/github-buttons/blob/master/github-btn.html
+
 var head = document.getElementsByTagName('head')[0]
 
 var counterMap = {
@@ -213,8 +215,10 @@ module.exports = setButton
 
 ;(setButton.all = function () {
   var buttons = document.querySelectorAll('.github-btn')
+  var button
   for (var i = 0, l = buttons.length; i < l; i++)
-    setButton(buttons[i])
+    if (!(button = buttons[i]).getAttribute('data-processed'))
+      setButton(buttons[i])
 })()
 
 function setButton(el) {
@@ -227,50 +231,48 @@ function setButton(el) {
   if (!user)
     throw new Error('User not set!')
 
-  var githubButton = createButton()
+  var btn = createButton()
 
   // Set href to be URL for repo
-  githubButton.button.href = 'https://github.com/' + user + '/' + repo + '/';
+  btn.button.href = 'https://github.com/' + user + '/' + repo + '/'
 
   // Add the class, change the text label, set count link href
   if (type === 'watch') {
-    githubButton.main.className += ' github-watchers';
-    githubButton.text.innerHTML = 'Star';
-    githubButton.counter.href = 'https://github.com/' + user + '/' + repo + '/stargazers';
+    btn.main.className += ' github-watchers'
+    btn.text.innerHTML = 'Star'
+    btn.counter.href = 'https://github.com/' + user + '/' + repo + '/stargazers'
   } else if (type === 'fork') {
-    githubButton.main.className += ' github-forks';
-    githubButton.text.innerHTML = 'Fork';
-    githubButton.counter.href = 'https://github.com/' + user + '/' + repo + '/network';
+    btn.main.className += ' github-forks'
+    btn.text.innerHTML = 'Fork'
+    btn.counter.href = 'https://github.com/' + user + '/' + repo + '/network'
   } else if (type === 'follow') {
-    githubButton.main.className += ' github-me';
-    githubButton.text.innerHTML = 'Follow @' + user;
-    githubButton.button.href = 'https://github.com/' + user;
-    githubButton.counter.href = 'https://github.com/' + user + '/followers';
+    btn.main.className += ' github-me'
+    btn.text.innerHTML = 'Follow @' + user
+    btn.button.href = 'https://github.com/' + user
+    btn.counter.href = 'https://github.com/' + user + '/followers'
   } else {
     throw new Error('Invalid type.')
   }
 
   // Change the size
-  if (size === 'large') {
-    githubButton.main.className += ' github-btn-large';
-  }
+  if (size === 'large')
+    btn.main.className += ' github-btn-large'
 
   var id = 'callback_' + Math.random().toString(36).substr(2,16)
   window[id] = callback
 
-  if (type == 'follow') {
-    jsonp('https://api.github.com/users/' + user, id);
-  } else {
-    jsonp('https://api.github.com/repos/' + user + '/' + repo, id);
-  }
+  if (type == 'follow')
+    jsonp('https://api.github.com/users/' + user, id)
+  else
+    jsonp('https://api.github.com/repos/' + user + '/' + repo, id)
 
   function callback(obj) {
-    githubButton.counter.innerHTML = addCommas(obj.data[counterMap[type]] || 0)
+    btn.counter.innerHTML = addCommas(obj.data[counterMap[type]] || 0)
 
     if (count)
-      githubButton.counter.style.display = 'block'
+      btn.counter.style.display = 'block'
 
-    el.parentNode.replaceChild(githubButton.main, el)
+    el.parentNode.replaceChild(btn.main, el)
 
     delete window[id]
   }
@@ -315,9 +317,9 @@ function addCommas(n) {
 }
 
 function jsonp(path, callback) {
-  var el = document.createElement('script');
-  el.src = path + '?callback=' + callback;
-  head.insertBefore(el, head.firstChild);
+  var el = document.createElement('script')
+  el.src = path + '?callback=' + callback
+  head.insertBefore(el, head.firstChild)
 }
 });
 require.alias("github-buttons/index.js", "github-buttons/index.js");
