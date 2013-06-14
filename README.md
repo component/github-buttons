@@ -2,7 +2,9 @@
 
 Basically, a copy-pasta, standalone, Javascript version of [mdo/github-buttons](https://github.com/mdo/github-buttons). The reason for this library is that @mdo's version doesn't work with SSL and using iframes is just silly.
 
-Also, GitHub, you suck for not supporting this yourself.
+The CSS is prepended with `.github-btn` to prepend to increase specificity to avoid conflicts with your own CSS.
+
+GitHub, you suck for not supporting this yourself.
 
 ### Installation
 
