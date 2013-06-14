@@ -2,7 +2,7 @@
   "name": "github-buttons",
   "description": "Script version of @mdo's Github Buttons",
   "version": "0.0.1",
-  "license": "WTFPL",
+  "license": "MIT",
   "main": ["index.js", "style.css"],
   "scripts": [
     "index.js"
