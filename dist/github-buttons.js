@@ -318,9 +318,7 @@ function jsonp(path, callback) {
   head.insertBefore(el, head.firstChild)
 }
 });
-require.alias("github-buttons/index.js", "github-buttons/index.js");
-
-if (typeof exports == "object") {
+require.alias("github-buttons/index.js", "github-buttons/index.js");if (typeof exports == "object") {
   module.exports = require("github-buttons");
 } else if (typeof define == "function" && define.amd) {
   define(function(){ return require("github-buttons"); });
