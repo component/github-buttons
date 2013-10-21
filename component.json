@@ -1,8 +1,8 @@
 {
   "name": "github-buttons",
   "description": "Script version of @mdo's Github Buttons",
-  "repo": "jonathanong/github-buttons",
-  "version": "0.0.2",
+  "repo": "component/github-buttons",
+  "version": "0.0.3",
   "license": "MIT",
   "main": "index.js",
   "scripts": [
