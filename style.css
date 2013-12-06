@@ -1,4 +1,5 @@
 .github-btn {
+  display: inline-block;
   height: 20px;
   font: bold 11px/14px "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-rendering: optimizeLegibility;
