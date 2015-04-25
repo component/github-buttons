@@ -1,12 +1,13 @@
 ## GitHub Buttons
 
+'NOTE: Github Buttons was originally developed by [Jonathan Ong](https://github.com/jongleberry)'        
+
 Basically, a copy-pasta, standalone, Javascript version of [mdo/github-buttons](https://github.com/mdo/github-buttons). The reason for this library is that @mdo's version doesn't work with SSL and using iframes is just silly.
 
 The CSS is prepended with `.github-btn` to prepend to increase specificity to avoid conflicts with your own CSS.
 
-GitHub, you suck for not supporting this yourself.
-
 ### Installation
+The package managers `bower` and `component` can be used to install github-buttons.
 
 ```bash
 bower install github-buttons
@@ -20,9 +21,11 @@ Place the buttons wherever on the page. They should have `class="github-btn"`. Y
 All options as shown on [mdo/github-buttons](https://github.com/mdo/github-buttons) are available through `data-*` attributes. View the demo for basically every possible variation of buttons.
 
 ```html
-<span class="github-btn hide" data-user="jonathanong" data-repo="github-buttons" data-type="watch" data-count="1"></span>
+<!-- Some HTML markup -->
+<span class="github-btn hide" data-user="seanballais" data-repo="github-buttons" data-type="watch" data-count="1"></span>
 
 <script src="github-buttons.js"></script>
+<!-- Some HTML markup -->
 ```
 
 Note that the script should be loaded after all button definitions.
@@ -37,13 +40,13 @@ githubButtons(document.querySelector('.github-btn'))
 
 #### githubButtons.all()
 
-Loads all buttons on the page. This is run on script load automatically.
+Loads all buttons on the page. This is run on script loads automatically.
 
 ### License
 
 The MIT License (MIT)
 
-Copyright (c) 2013 Jonathan Ong me@jongleberry.com
+Copyright (c) 2015 Sean Francis N. Ballais sfballais123@gmail.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
