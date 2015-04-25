@@ -1,6 +1,6 @@
 ## GitHub Buttons
 
-*NOTE: Github Buttons was originally developed by [Jonathan Ong](https://github.com/jongleberry)*       
+*NOTE: Github Buttons was originally developed by [Jonathan Ong](https://github.com/jongleberry).*       
 
 Basically, a copy-pasta, standalone, Javascript version of [mdo/github-buttons](https://github.com/mdo/github-buttons). The reason for this library is that @mdo's version doesn't work with SSL and using iframes is just silly.
 
