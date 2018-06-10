@@ -20,11 +20,17 @@ Place the buttons wherever on the page. They should have `class="github-btn"`. Y
 
 All options as shown on [mdo/github-buttons](https://github.com/mdo/github-buttons) are available through `data-*` attributes. View the demo for basically every possible variation of buttons.
 
+#### head
+```html
+<link rel="stylesheet" href="https://cdn.rawgit.com/component/github-buttons/45e6a194/dist/github-buttons.css">
+```
+
+#### body
 ```html
 <!-- Some HTML markup -->
 <span class="github-btn hide" data-user="seanballais" data-repo="github-buttons" data-type="watch" data-count="1"></span>
 
-<script src="github-buttons.js"></script>
+<script src="https://cdn.rawgit.com/component/github-buttons/45e6a194/dist/github-buttons.js"></script>
 <!-- Some HTML markup -->
 ```
 
